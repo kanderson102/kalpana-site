@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-purple-navy: #46538B;
+  --color-steel-blue: #4796AE;
+  --color-sea-foam-green: #AFE0C8;
+  --color-candy-pink: #ED7672;
+
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-inter), sans-serif;
+}
+
+/* Base Styles & Variables */
+@layer base {
+  :root {
+    /* Light Mode Enforced */
+    --background: #FFFFFF;
+    --foreground: #46538B;
+    /* Purple Navy */
+
+    --card: #FFFFFF;
+    --card-foreground: #46538B;
+
+    --popover: #FFFFFF;
+    --popover-foreground: #46538B;
+
+    --primary: #ED7672;
+    /* Candy Pink for Buttons/CTAs */
+    --primary-foreground: #FFFFFF;
+
+    --secondary: #AFE0C8;
+    /* Sea Foam Green (UI elements) */
+    --secondary-foreground: #46538B;
+
+    --muted: #F0F4F8;
+    /* Keep neutral or adjust if needed */
+    --muted-foreground: #46538B;
+    /* Opacity handled in classes typically, but base color is Navy */
+
+    --accent: #AFE0C8;
+    /* Sea Foam */
+    --accent-foreground: #46538B;
+
+    --destructive: #ef4444;
+    --destructive-foreground: #f8fafc;
+
+    --border: #AFE0C8;
+    /* Sea Foam Green borders */
+    --input: #E2E8F0;
+    /* Keep neutral inputs or match border */
+    --ring: #4796AE;
+    /* Steel Blue ring */
+
+    --radius: 0.5rem;
+  }
+
+  /* Dark mode removed */
+
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+  }
+}
