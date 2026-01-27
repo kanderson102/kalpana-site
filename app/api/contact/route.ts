@@ -13,16 +13,6 @@ const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
 const AIRTABLE_TABLE_NAME = process.env.AIRTABLE_TABLE_NAME;
 
 export async function POST(request: Request) {
-    // Debug: Log environment variable presence
-    console.log("Config Check:");
-    console.log("- RESEND_API_KEY:", process.env.RESEND_API_KEY ? "Set" : "Missing");
-    console.log("- OWNER_EMAILS_VAR:", process.env.OWNER_EMAILS ? "Set" : "Using Default/Missing");
-    console.log("- OWNER_EMAILS (parsed):", OWNER_EMAILS);
-    console.log("- SENDER_EMAIL:", SENDER_EMAIL);
-    console.log("- AIRTABLE_PAT:", process.env.AIRTABLE_PAT ? "Set" : "Missing");
-    console.log("- AIRTABLE_BASE_ID:", process.env.AIRTABLE_BASE_ID ? "Set" : "Missing");
-    console.log("- AIRTABLE_TABLE_NAME:", process.env.AIRTABLE_TABLE_NAME ? "Set" : "Missing");
-
     try {
         const body = await request.json();
         const { firstName, lastName, email, subject, message } = body;
@@ -40,7 +30,7 @@ export async function POST(request: Request) {
         // 1. Send Notification Email to Owner (You) via Resend
         if (process.env.RESEND_API_KEY) {
             try {
-                await resend.emails.send({
+                const data = await resend.emails.send({
                     from: SENDER_EMAIL,
                     to: OWNER_EMAILS,
                     subject: `New Inquiry: ${subject || "General Contact"}`,
@@ -54,8 +44,14 @@ export async function POST(request: Request) {
                         <p>${message.replace(/\n/g, '<br>')}</p>
                     `
                 });
+
+                if (data.error) {
+                    console.error("Resend API Error:", data.error);
+                } else {
+                    console.log("Resend Success:", data.data);
+                }
             } catch (emailError) {
-                console.error("Resend Failed:", emailError);
+                console.error("Resend Network/SDK Failed:", emailError);
             }
         } else {
             console.warn("RESEND_API_KEY is missing. Email not sent.");
@@ -70,7 +66,7 @@ export async function POST(request: Request) {
                 const createdDate = `${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')}/${now.getFullYear()}`;
 
                 const base = new Airtable({ apiKey: AIRTABLE_PAT as string }).base(AIRTABLE_BASE_ID as string);
-                await base(AIRTABLE_TABLE_NAME as string).create([
+                const records = await base(AIRTABLE_TABLE_NAME as string).create([
                     {
                         fields: {
                             "Lead Name": fullName, // Airtable has "Lead Name" as primary
@@ -82,6 +78,7 @@ export async function POST(request: Request) {
                         }
                     }
                 ], { typecast: true });
+                console.log("Airtable Success:", records.map(r => r.id));
             } catch (airtableError) {
                 console.error("Failed to save to Airtable:", airtableError);
             }
