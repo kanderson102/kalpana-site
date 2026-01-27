@@ -13,6 +13,16 @@ const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
 const AIRTABLE_TABLE_NAME = process.env.AIRTABLE_TABLE_NAME;
 
 export async function POST(request: Request) {
+    // Debug: Log environment variable presence
+    console.log("Config Check:");
+    console.log("- RESEND_API_KEY:", process.env.RESEND_API_KEY ? "Set" : "Missing");
+    console.log("- OWNER_EMAILS_VAR:", process.env.OWNER_EMAILS ? "Set" : "Using Default/Missing");
+    console.log("- OWNER_EMAILS (parsed):", OWNER_EMAILS);
+    console.log("- SENDER_EMAIL:", SENDER_EMAIL);
+    console.log("- AIRTABLE_PAT:", process.env.AIRTABLE_PAT ? "Set" : "Missing");
+    console.log("- AIRTABLE_BASE_ID:", process.env.AIRTABLE_BASE_ID ? "Set" : "Missing");
+    console.log("- AIRTABLE_TABLE_NAME:", process.env.AIRTABLE_TABLE_NAME ? "Set" : "Missing");
+
     try {
         const body = await request.json();
         const { firstName, lastName, email, subject, message } = body;
