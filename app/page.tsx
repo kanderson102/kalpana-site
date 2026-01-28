@@ -8,6 +8,7 @@ import { Section, Container } from "@/components/ui/layout-components";
 import { MotionSection } from "@/components/ui/motion-section";
 import { ContactForm } from "@/components/contact-form";
 import { NewsletterForm } from "@/components/newsletter-form";
+import { TestimonialsMarquee } from "@/components/testimonials-marquee";
 import { getAllPosts } from "@/lib/blog";
 import { projects } from "@/app/data/collaborations";
 
@@ -44,7 +45,7 @@ export default function Home() {
           </MotionSection>
 
           <MotionSection delay={0.4} className="flex gap-4 justify-center pt-4">
-            <Button size="lg" asChild className="rounded-full px-8 bg-candy-pink hover:bg-candy-pink/90 transition-all hover:scale-105">
+            <Button size="lg" asChild className="rounded-full px-8 bg-candy-pink text-white hover:bg-candy-pink/90 transition-all hover:scale-105">
               <Link href="#contact">
                 Work with us <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -150,7 +151,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { label: "Years Experience", value: "12+" },
-              { label: "Projects Launched", value: "50+" },
+              { label: "Projects Launched", value: "7" },
               { label: "Coffee Consumed", value: "∞" },
               { label: "Happy Founders", value: "100%" }
             ].map((stat, i) => (
@@ -197,121 +198,124 @@ export default function Home() {
               </MotionSection>
             ))}
           </div>
-        </Container>
-      </Section>
+      </Container>
+    </Section>
 
-      {/* Founders Brief (New Section - Updated to prioritize Sunshine) */}
-      <Section className="bg-white">
-        <Container>
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            <MotionSection className="md:w-1/3">
-              <div className="relative aspect-square bg-white rounded-full overflow-hidden border-4 border-sea-foam-green shadow-xl max-w-sm mx-auto">
-                {/* Local Image from lib folder */}
-                {/* Note: In a real Next.js app, images should be in /public. assuming local file copy or placeholder */}
-                <Image
-                  src="/kyle-sunshine.jpeg" // Assuming this will be moved to public
-                  alt="Sunshine and Kyle"
-                  width={400}
-                  height={400}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            </MotionSection>
-            <MotionSection className="md:w-2/3 space-y-6">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-steel-blue">Humble, Aligned, Human.</h2>
-              <p className="text-lg text-purple-navy/80 leading-relaxed">
-                We exist to serve founders who are doing meaningful work — often alone — and need a trusted partner. No pressure, no aggressive tactics. Just two humans (Sunshine & Kyle) and a cat or two, who care about your mission as much as you do.
-              </p>
-              <Button variant="default" asChild>
-                <Link href="/about">Read Our Story <ArrowRight className="ml-2 h-4 w-4" /></Link>
-              </Button>
-            </MotionSection>
+      {/* Testimonials Marquee */ }
+  <TestimonialsMarquee />
+
+  {/* Founders Brief (New Section - Updated to prioritize Sunshine) */ }
+  <Section className="bg-white">
+    <Container>
+      <div className="flex flex-col md:flex-row gap-12 items-center">
+        <MotionSection className="md:w-1/3">
+          <div className="relative aspect-square bg-white rounded-full overflow-hidden border-4 border-sea-foam-green shadow-xl max-w-sm mx-auto">
+            {/* Local Image from lib folder */}
+            {/* Note: In a real Next.js app, images should be in /public. assuming local file copy or placeholder */}
+            <Image
+              src="/kyle-sunshine.jpeg" // Assuming this will be moved to public
+              alt="Sunshine and Kyle"
+              width={400}
+              height={400}
+              className="object-cover w-full h-full"
+            />
           </div>
-        </Container>
-      </Section>
+        </MotionSection>
+        <MotionSection className="md:w-2/3 space-y-6">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-steel-blue">Humble, Aligned, Human.</h2>
+          <p className="text-lg text-purple-navy/80 leading-relaxed">
+            We exist to serve founders who are doing meaningful work — often alone — and need a trusted partner. No pressure, no aggressive tactics. Just two humans (Sunshine & Kyle) and a cat or two, who care about your mission as much as you do.
+          </p>
+          <Button variant="default" asChild>
+            <Link href="/about">Read Our Story <ArrowRight className="ml-2 h-4 w-4" /></Link>
+          </Button>
+        </MotionSection>
+      </div>
+    </Container>
+  </Section>
 
-      {/* Recent Field Notes (Blog Preview) */}
-      <Section className="bg-background">
-        <Container>
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-            <MotionSection>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Recent Field Notes</h2>
-              <p className="text-muted-foreground max-w-xl mt-4">
-                Musings on technology, mindfulness, and the intersection of both.
-              </p>
+  {/* Recent Field Notes (Blog Preview) */ }
+  <Section className="bg-background">
+    <Container>
+      <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+        <MotionSection>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold">Recent Field Notes</h2>
+          <p className="text-muted-foreground max-w-xl mt-4">
+            Musings on technology, mindfulness, and the intersection of both.
+          </p>
+        </MotionSection>
+        <MotionSection delay={0.2}>
+          <Button variant="outline" asChild>
+            <Link href="/library">View the Library <ArrowRight className="ml-2 h-4 w-4" /></Link>
+          </Button>
+        </MotionSection>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-8">
+        {recentPosts.length > 0 ? (
+          recentPosts.map((post, i) => (
+            <MotionSection key={post.slug} delay={i * 0.1} className="h-full">
+              <Link href={`/library/${post.slug}`} className="block h-full group">
+                <Card className="h-full border-none shadow-none bg-muted/20 hover:bg-muted/30 transition-colors">
+                  <CardHeader>
+                    <div className="text-sm text-primary mb-2 font-medium">{new Date(post.date).toLocaleDateString()}</div>
+                    <CardTitle className="text-xl font-serif group-hover:text-primary transition-colors">{post.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-sm line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                    <div className="mt-4 flex items-center text-primary text-sm font-medium">
+                      Read more <ArrowUpRight className="ml-1 h-3 w-3" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             </MotionSection>
-            <MotionSection delay={0.2}>
-              <Button variant="outline" asChild>
-                <Link href="/library">View the Library <ArrowRight className="ml-2 h-4 w-4" /></Link>
-              </Button>
-            </MotionSection>
+          ))
+        ) : (
+          <div className="col-span-3 text-center py-12 text-muted-foreground">
+            No field notes found. Coming soon.
           </div>
+        )}
+      </div>
+    </Container>
+  </Section>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {recentPosts.length > 0 ? (
-              recentPosts.map((post, i) => (
-                <MotionSection key={post.slug} delay={i * 0.1} className="h-full">
-                  <Link href={`/library/${post.slug}`} className="block h-full group">
-                    <Card className="h-full border-none shadow-none bg-muted/20 hover:bg-muted/30 transition-colors">
-                      <CardHeader>
-                        <div className="text-sm text-primary mb-2 font-medium">{new Date(post.date).toLocaleDateString()}</div>
-                        <CardTitle className="text-xl font-serif group-hover:text-primary transition-colors">{post.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground text-sm line-clamp-3">
-                          {post.excerpt}
-                        </p>
-                        <div className="mt-4 flex items-center text-primary text-sm font-medium">
-                          Read more <ArrowUpRight className="ml-1 h-3 w-3" />
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </MotionSection>
-              ))
-            ) : (
-              <div className="col-span-3 text-center py-12 text-muted-foreground">
-                No field notes found. Coming soon.
-              </div>
-            )}
-          </div>
-        </Container>
-      </Section>
+  {/* Newsletter Section */ }
+  <Section className="bg-sea-foam-green/30 border-y border-primary/10">
+    <Container>
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <MotionSection className="md:w-1/2 space-y-4">
+          <h2 className="text-2xl md:text-3xl font-serif font-bold text-purple-navy">
+            Join our slow growth community.
+          </h2>
+          <p className="text-purple-navy/80 text-lg">
+            Get monthly field notes on conscious business, technical zen, and building without burnout. No spam, ever.
+          </p>
+        </MotionSection>
+        <MotionSection className="md:w-1/2 flex justify-center md:justify-end" delay={0.2}>
+          <NewsletterForm />
+        </MotionSection>
+      </div>
+    </Container>
+  </Section>
 
-      {/* Newsletter Section */}
-      <Section className="bg-sea-foam-green/30 border-y border-primary/10">
-        <Container>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <MotionSection className="md:w-1/2 space-y-4">
-              <h2 className="text-2xl md:text-3xl font-serif font-bold text-purple-navy">
-                Join our slow growth community.
-              </h2>
-              <p className="text-purple-navy/80 text-lg">
-                Get monthly field notes on conscious business, technical zen, and building without burnout. No spam, ever.
-              </p>
-            </MotionSection>
-            <MotionSection className="md:w-1/2 flex justify-center md:justify-end" delay={0.2}>
-              <NewsletterForm />
-            </MotionSection>
-          </div>
-        </Container>
-      </Section>
+  {/* Contact Form */ }
+  <Section id="contact" className="bg-background">
+    <Container className="max-w-2xl">
+      <MotionSection>
+        <div className="text-center mb-10 space-y-4">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold">Start your project.</h2>
+          <p className="text-muted-foreground">
+            Tell us about your work and what you're looking for. We'll get back to you within 48 hours.
+          </p>
+        </div>
 
-      {/* Contact Form */}
-      <Section id="contact" className="bg-background">
-        <Container className="max-w-2xl">
-          <MotionSection>
-            <div className="text-center mb-10 space-y-4">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Start your project.</h2>
-              <p className="text-muted-foreground">
-                Tell us about your work and what you're looking for. We'll get back to you within 48 hours.
-              </p>
-            </div>
-
-            <ContactForm />
-          </MotionSection>
-        </Container>
-      </Section>
-    </div>
+        <ContactForm />
+      </MotionSection>
+    </Container>
+  </Section>
+    </div >
   );
 }

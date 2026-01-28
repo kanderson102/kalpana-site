@@ -44,7 +44,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                             <span>{post.readTime}</span>
                         </div>
 
-                        <h1 className="text-3xl md:text-5xl font-serif font-bold text-foreground mb-6 leading-tight">
+                        <h1 className="text-3xl md:text-5xl font-serif font-bold text-gray-900 dark:text-foreground mb-6 leading-tight">
                             {post.title}
                         </h1>
 
@@ -58,7 +58,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
             <Section>
                 <Container className="max-w-3xl">
                     <MotionSection delay={0.1}>
-                        <article className="prose prose-lg dark:prose-invert prose-headings:font-serif prose-headings:font-bold prose-a:text-primary hover:prose-a:underline prose-img:rounded-lg max-w-none">
+                        <article className="prose prose-lg prose-headings:text-gray-900 prose-p:text-gray-900 prose-strong:text-gray-900 prose-li:text-gray-900 prose-ul:text-gray-900 prose-ol:text-gray-900 dark:prose-invert prose-headings:font-serif prose-headings:font-bold prose-a:text-primary hover:prose-a:underline prose-img:rounded-lg max-w-none">
                             <ReactMarkdown>{post.content}</ReactMarkdown>
                         </article>
 

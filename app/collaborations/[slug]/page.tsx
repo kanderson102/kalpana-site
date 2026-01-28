@@ -48,7 +48,7 @@ export default function ProjectPage({ params }: PageProps) {
                         <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
                             {project.title}
                         </h1>
-                        <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mb-8">
+                        <p className="text-xl text-black leading-relaxed max-w-2xl mb-8">
                             {project.description}
                         </p>
                     </div>
@@ -63,7 +63,7 @@ export default function ProjectPage({ params }: PageProps) {
                             {/* In real implementaion: <Image src={project.images[0]} ... /> */}
                         </div>
 
-                        <div className="prose prose-lg dark:prose-invert max-w-none">
+                        <div className="prose prose-lg prose-headings:text-gray-900 prose-p:text-gray-900 prose-strong:text-gray-900 prose-li:text-gray-900 prose-ul:text-gray-900 prose-ol:text-gray-900 dark:prose-invert max-w-none">
                             <h3 className="font-serif text-2xl mb-4">The Challenge & Solution</h3>
                             <p>{project.longDescription}</p>
 
@@ -81,7 +81,7 @@ export default function ProjectPage({ params }: PageProps) {
                             <CardContent className="pt-6 space-y-6">
                                 <div>
                                     <h4 className="font-bold text-foreground mb-2">Services Provided</h4>
-                                    <ul className="text-sm text-muted-foreground space-y-1">
+                                    <ul className="text-sm text-black space-y-1">
                                         <li>• Strategy & Audit</li>
                                         <li>• UX/UI Design</li>
                                         <li>• Full Stack Development</li>

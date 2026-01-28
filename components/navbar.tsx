@@ -11,6 +11,7 @@ import { Container } from "@/components/ui/layout-components";
 
 const navLinks = [
     { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
     { name: "The Library", href: "/library" },
     { name: "Collaborations", href: "/collaborations" },
 ];

@@ -16,7 +16,7 @@ export default function CollaborationsPage() {
                         <h1 className="text-4xl md:text-5xl font-serif font-bold text-center mb-6">
                             Collaborations
                         </h1>
-                        <p className="text-lg md:text-xl text-center text-muted-foreground max-w-2xl mx-auto">
+                        <p className="text-lg md:text-xl text-center text-black max-w-2xl mx-auto">
                             A collection of projects where we helped good people do good work.
                         </p>
                     </MotionSection>
