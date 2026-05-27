@@ -11,6 +11,7 @@ See the template live in action at [kalpanadigitalmedia.com](https://kalpanadigi
 - **Micro-Animations:** Fluid scroll animations and hover effects powered by Framer Motion.
 - **Responsive & Accessible:** Fully mobile-friendly layout with semantic HTML elements and clean ARIA attributes.
 - **Form Integration:** Dynamic contact form pre-configured for email notifications and CRM collection.
+- **Legal Compliance Pages:** Clean, light-themed subpages for Privacy Policy (`/privacy`) and Terms of Service (`/terms`) linked directly from the footer.
 
 ## Stack
 
