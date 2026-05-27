@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Figtree, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
-const inter = Inter({
+const figtree = Figtree({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-figtree",
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["italic", "normal"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
@@ -35,8 +37,8 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans text-foreground antialiased selection:bg-primary/20",
-          inter.variable,
-          playfair.variable
+          figtree.variable,
+          cormorant.variable
         )}
       >
         <ThemeProvider

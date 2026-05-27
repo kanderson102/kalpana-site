@@ -3,52 +3,45 @@ import { Container } from "@/components/ui/layout-components";
 
 export function Footer() {
     return (
-        <footer className="border-t bg-purple-navy text-white">
-            <Container className="py-8 md:py-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* Brand */}
-                    <div className="space-y-4">
-                        <span className="font-serif text-lg font-bold text-white">
-                            Kalpana Media
-                        </span>
-                        <p className="text-sm text-sea-foam-green/80 max-w-xs">
-                            Digital marketing and website support for conscious small businesses.
+        <footer className="border-t border-black bg-white text-black py-12">
+            <Container>
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                    <div>
+                        <Link href="/" className="font-sans text-xl font-extrabold tracking-tight text-black uppercase hover:opacity-80 transition-opacity">
+                            Kalpana <span className="font-serif italic font-normal lowercase tracking-normal">media</span>
+                        </Link>
+                        <p className="text-xs text-neutral-500 mt-2 font-medium">
+                            Independent creators. Honest work. Durable results.
                         </p>
                     </div>
 
-                    {/* Links */}
-                    <div className="space-y-4">
-                        <h4 className="text-sm font-semibold tracking-wider uppercase text-sea-foam-green">
-                            Menu
-                        </h4>
-                        <nav className="flex flex-col space-y-2 text-sm text-white/80">
-                            <Link href="/about" className="hover:text-candy-pink transition-colors">
-                                About
-                            </Link>
-                            <Link href="/library" className="hover:text-candy-pink transition-colors">
-                                The Library
-                            </Link>
-                            <Link href="/collaborations" className="hover:text-candy-pink transition-colors">
-                                Collaborations
-                            </Link>
-                        </nav>
-                    </div>
+                    <nav className="flex items-center gap-8">
+                        <Link href="#services" className="text-xs font-bold uppercase tracking-wider text-neutral-600 hover:text-black transition-colors">
+                            Services
+                        </Link>
+                        <Link href="#projects" className="text-xs font-bold uppercase tracking-wider text-neutral-600 hover:text-black transition-colors">
+                            Work
+                        </Link>
+                        <Link href="#about" className="text-xs font-bold uppercase tracking-wider text-neutral-600 hover:text-black transition-colors">
+                            About
+                        </Link>
+                        <Link href="#contact" className="text-xs font-bold uppercase tracking-wider text-neutral-600 hover:text-black transition-colors">
+                            Contact
+                        </Link>
+                    </nav>
 
-                    {/* Socials / Contact */}
-                    <div className="space-y-4">
-                        <h4 className="text-sm font-semibold tracking-wider uppercase text-sea-foam-green">
-                            Connect
-                        </h4>
-                        <p className="text-sm text-white/80">
-                            Based in the Cloud.<br />
-                            Serving Earth.
-                        </p>
-                        {/* Social icons placeholder */}
+                    <div className="flex items-center gap-5 text-neutral-500">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors text-xs font-bold uppercase tracking-wider">
+                            LinkedIn
+                        </a>
+                        <a href="https://instagram.com/himalayanyogayatra/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors text-xs font-bold uppercase tracking-wider">
+                            Instagram
+                        </a>
                     </div>
                 </div>
 
-                <div className="mt-8 border-t border-white/10 pt-8 text-center text-xs text-white/60">
-                    &copy; {new Date().getFullYear()} Kalpana Media. All rights reserved.
+                <div className="mt-12 pt-6 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500 font-medium">
+                    <p>&copy; {new Date().getFullYear()} Kalpana Media. All rights reserved.</p>
                 </div>
             </Container>
         </footer>

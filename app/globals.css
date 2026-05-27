@@ -2,60 +2,48 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-purple-navy: #46538B;
-  --color-steel-blue: #4796AE;
-  --color-sea-foam-green: #AFE0C8;
-  --color-candy-pink: #ED7672;
+  --color-purple-navy: #4b5563;
+  --color-steel-blue: #000000;
+  --color-sea-foam-green: #000000;
+  --color-candy-pink: #000000;
 
-  --font-serif: var(--font-playfair), serif;
-  --font-sans: var(--font-inter), sans-serif;
+  --font-serif: var(--font-cormorant), serif;
+  --font-sans: var(--font-figtree), sans-serif;
 }
 
 /* Base Styles & Variables */
 @layer base {
-  :root {
-    /* Light Mode Enforced */
-    --background: #FFFFFF;
-    --foreground: #46538B;
-    /* Purple Navy */
+  :root, .dark {
+    --background: #ffffff;
+    --foreground: #000000;
 
-    --card: #FFFFFF;
-    --card-foreground: #46538B;
+    --card: #ffffff;
+    --card-foreground: #000000;
 
-    --popover: #FFFFFF;
-    --popover-foreground: #46538B;
+    --popover: #ffffff;
+    --popover-foreground: #000000;
 
-    --primary: #ED7672;
-    /* Candy Pink for Buttons/CTAs */
-    --primary-foreground: #FFFFFF;
+    --primary: #000000;
+    --primary-foreground: #ffffff;
 
-    --secondary: #AFE0C8;
-    /* Sea Foam Green (UI elements) */
-    --secondary-foreground: #46538B;
+    --secondary: #f9f9fb;
+    --secondary-foreground: #000000;
 
-    --muted: #F0F4F8;
-    /* Keep neutral or adjust if needed */
-    --muted-foreground: #46538B;
-    /* Opacity handled in classes typically, but base color is Navy */
+    --muted: #f3f4f6;
+    --muted-foreground: #4b5563;
 
-    --accent: #AFE0C8;
-    /* Sea Foam */
-    --accent-foreground: #46538B;
+    --accent: #f3f4f6;
+    --accent-foreground: #000000;
 
-    --destructive: #ef4444;
-    --destructive-foreground: #f8fafc;
+    --destructive: #dc2626;
+    --destructive-foreground: #ffffff;
 
-    --border: #AFE0C8;
-    /* Sea Foam Green borders */
-    --input: #E2E8F0;
-    /* Keep neutral inputs or match border */
-    --ring: #4796AE;
-    /* Steel Blue ring */
+    --border: #000000;
+    --input: #ffffff;
+    --ring: #000000;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
   }
-
-  /* Dark mode removed */
 
   * {
     border-color: var(--border);
@@ -63,6 +51,8 @@
 
   html {
     scroll-behavior: smooth;
+    background-color: var(--background);
+    color: var(--foreground);
   }
 
   body {
@@ -70,6 +60,4 @@
     color: var(--foreground);
     font-family: var(--font-sans);
   }
-
-
 }

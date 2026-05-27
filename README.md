@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js SPA Agency Template
+
+A premium, minimalist, high-contrast single-page agency template built using Next.js 16 (App Router), Tailwind CSS, Framer Motion, and Lucide Icons. Designed with clean typography (Figtree & Cormorant Garamond), solid black borders, and vibrant bento grids.
+
+See the template live in action at [kalpanadigitalmedia.com](https://kalpanadigitalmedia.com).
+
+## Features
+
+- **Modern Visual Identity:** Bold high-contrast aesthetic featuring a pure white background, pure black borders/text, and curated bright bento cards (Mint Green, Banana Yellow, Baby Pink, Sky Blue).
+- **Single-Page Architecture (SPA):** Seamless anchor links connecting Hero, Services, Selected Work, About, FAQ, and Contact sections on a single fast-loading page.
+- **Micro-Animations:** Fluid scroll animations and hover effects powered by Framer Motion.
+- **Responsive & Accessible:** Fully mobile-friendly layout with semantic HTML elements and clean ARIA attributes.
+- **Form Integration:** Dynamic contact form pre-configured for email notifications and CRM collection.
+
+## Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** Tailwind CSS
+- **Animation:** Framer Motion
+- **Icons:** Lucide React
+- **Typography:** Figtree (Sans-serif) & Cormorant Garamond (Italic Serif)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install Dependencies
+
+Clone the repository and install the packages:
+
+```bash
+npm install
+```
+
+### 2. Configure Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+# Contact Form Integrations (Optional)
+RESEND_API_KEY=your_resend_api_key
+CONTACT_EMAIL=your_inbox@domain.com
+AIRTABLE_API_KEY=your_airtable_api_key
+AIRTABLE_BASE_ID=your_airtable_base_id
+AIRTABLE_TABLE_NAME=your_airtable_table_name
+```
+
+### 3. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Customizing Content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Portfolio Projects
+Update the project list in [app/data/collaborations.ts](file:///Users/kyle/Documents/projects/kalpana-site/app/data/collaborations.ts):
+```typescript
+export interface Project {
+    title: string;
+    slug: string;
+    description: string;
+    longDescription?: string;
+    tag: string;
+    link: string; // Live external URL
+    images: string[]; // Relative paths starting with /assets/
+}
+```
+Place your portfolio screenshots in the `public/assets/` folder.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### FAQ Accordion
+Edit the questions and answers in [components/faq-accordion.tsx](file:///Users/kyle/Documents/projects/kalpana-site/components/faq-accordion.tsx) within the `faqData` array.
 
-## Deploy on Vercel
+### Visual Styling & Colors
+Global custom colors and theme settings are managed in [app/globals.css](file:///Users/kyle/Documents/projects/kalpana-site/app/globals.css) and [tailwind.config.ts](file:///Users/kyle/Documents/projects/kalpana-site/tailwind.config.ts).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This template is open-source and free to use for personal or commercial projects. Customize it to showcase your digital workshop!

@@ -50,12 +50,11 @@ const config: Config = {
                     DEFAULT: "var(--card)",
                     foreground: "var(--card-foreground)",
                 },
-                // Custom palette
-                // Custom palette - Coastal & Candy
-                'purple-navy': '#46538B',
-                'steel-blue': '#4796AE',
-                'sea-foam-green': '#AFE0C8',
-                'candy-pink': '#ED7672',
+                // Custom palette - Designjoy Overrides
+                'purple-navy': '#4b5563',
+                'steel-blue': '#000000',
+                'sea-foam-green': '#000000',
+                'candy-pink': '#000000',
             },
             borderRadius: {
                 lg: "var(--radius)",
