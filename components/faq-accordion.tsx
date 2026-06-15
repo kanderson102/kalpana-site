@@ -12,7 +12,7 @@ interface FAQItem {
 const faqData: FAQItem[] = [
     {
         question: "How much does a typical project cost?",
-        answer: "Most projects fall between $500 and $5,000 depending on scope. A straightforward automation or social media package sits toward the lower end; a custom application with integrations or a full analytics dashboard sits higher. We give fixed-price quotes after a short discovery call — no ambiguous estimates."
+        answer: "Most projects fall between $500 and $5,000 depending on scope. A straightforward automation may sit towards the lower end; a custom application with integrations or a full analytics dashboard sits higher; a social media package could be a monthly service somewhere in the middle. We give fixed-price quotes after a short discovery call — no ambiguous estimates."
     },
     {
         question: "How long does a project take?",
