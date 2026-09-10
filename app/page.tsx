@@ -14,11 +14,17 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-black selection:bg-neutral-200">
       {/* Hero Section */}
-      <Section className="pt-28 pb-20 md:pt-36 md:pb-28 border-b-2 border-black bg-white relative overflow-hidden">
+      <Section className="pt-28 pb-20 md:pt-36 md:pb-28 border-b-2 border-black bg-[#f0f7f9] relative overflow-hidden">
+        {/* Ambient Gradient & Color Glows */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#faf7f2] via-[#eef6f9] to-[#cbf0f8] pointer-events-none" />
+        <div className="absolute -top-32 -right-24 w-[36rem] h-[36rem] bg-[#bfeef8]/50 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 -left-20 w-[30rem] h-[30rem] bg-[#f8efe0]/60 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 right-1/3 w-[32rem] h-[24rem] bg-[#dbeafe]/40 rounded-full blur-3xl pointer-events-none" />
+
         <Container className="flex flex-col items-center text-center space-y-8 relative z-10">
           <MotionSection delay={0.2}>
             <h1 className="text-4xl md:text-7xl font-sans font-extrabold tracking-tight text-black max-w-5xl mx-auto leading-[1.05]">
-              Digital marketing and website support for{" "}
+              Digital marketing and technical solutions for{" "}
               <span className="font-serif italic font-normal tracking-normal lowercase">
                 conscious
               </span>{" "}
@@ -68,12 +74,12 @@ export default function Home() {
             <MotionSection whileHover={{ scale: 1.01 }} transition={{ type: "spring", stiffness: 400, damping: 15 }}>
               <Card className="h-full bg-[#a7f3d0] border-2 border-black rounded-2xl shadow-lg flex flex-col justify-between p-8 min-h-[220px]">
                 <CardHeader className="p-0 mb-4">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-black opacity-60">01 / Website Development</span>
-                  <CardTitle className="text-2xl md:text-3xl font-sans font-extrabold text-black mt-2">Website & Blog Build</CardTitle>
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-black opacity-60">01 / Technical Development</span>
+                  <CardTitle className="text-2xl md:text-3xl font-sans font-extrabold text-black mt-2">App & Website Build</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
                   <p className="text-black text-sm md:text-base leading-relaxed font-medium">
-                    Custom-built Next.js and high-performance websites. Secure, fast, mobile-ready digital spaces built on code and hosting environments that you own 100%.
+                    Custom-built Next.js applications, high-performance websites, Android apps, and modern digital solutions. Secure, fast, mobile-ready digital spaces built on code and hosting environments that you own 100%.
                   </p>
                 </CardContent>
               </Card>

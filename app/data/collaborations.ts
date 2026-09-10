@@ -35,5 +35,32 @@ export const projects: Project[] = [
         tag: "Instagram Page Management",
         link: "https://www.instagram.com/himalayanyogayatra/",
         images: ["/assets/HYY.jpg"]
+    },
+    {
+        title: "Gracious Collections",
+        slug: "gracious-collections",
+        description: "A curated vintage boutique and bridal heirloom showcase, featuring responsive e-commerce, story-driven journal features, and timeless aesthetic design.",
+        longDescription: "Gracious Collections offers curated antique bridal wear, heirloom textiles, and vintage gowns. We built an elegant, bespoke digital storefront with fluid browsing, seamless inquiry management, and story-driven editorial layouts reflecting timeless devotion and grace.",
+        tag: "E-Commerce & Brand Curation",
+        link: "https://graciouscollections.vercel.app/",
+        images: ["/assets/gracious-collections.png"]
+    },
+    {
+        title: "Gemspotter",
+        slug: "gemspotter",
+        description: "An AI-powered mobile sourcing companion that scans items, calculates profit margins, and fetches live eBay comps for smart inventory sourcing.",
+        longDescription: "Gemspotter is an AI-assisted sourcing and inventory valuation mobile app for resellers. Featuring live camera object detection, automated scan-to-profit estimation, and dynamic eBay market comps to empower fast sourcing decisions on the go.",
+        tag: "Mobile App & AI Valuation",
+        link: "https://github.com/kanderson102/gemspotter",
+        images: ["/assets/gemspotter.png"]
+    },
+    {
+        title: "Local Spotlight Mail",
+        slug: "local-spotlight-mail",
+        description: "A shared direct mail advertising platform helping local service businesses reach targeted neighborhood homes with premium co-op postcards.",
+        longDescription: "Local Spotlight Mail delivers community-focused, oversized shared mailers to 5,000 targeted households per territory. We developed their digital platform featuring interactive postcard slot previews, category exclusivity locks, and automated reservation inquiries.",
+        tag: "Direct Mail & Hyperlocal Marketing",
+        link: "https://localspotlightmail.com/",
+        images: ["/assets/localspotlightmail.png"]
     }
 ];

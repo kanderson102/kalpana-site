@@ -22,7 +22,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: "Kalpana Media | Conscious Digital Support",
-  description: "Digital marketing and website support for conscious small businesses.",
+  description: "Digital marketing and technical solutions for conscious small businesses.",
 };
 
 import { ThemeProvider } from "@/components/theme-provider";
